@@ -1,0 +1,6 @@
+<div class="topspaces">
+<a href="index.php"><img class="boximage" src="images/mainpage/mariopartysuperstars.jpg" alt="Mario Party Superstars" /></a>
+<ul>
+<li class="back"><a href="boards.php#boards">Back to boards</a>
+</ul>
+</div>

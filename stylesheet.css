@@ -1,0 +1,333 @@
+body
+{
+	background-image: linear-gradient(to right, rgb(2, 51, 6), rgb(0, 71, 0), rgb(26, 91, 33), rgb(0, 46, 0));
+	font-family:sans-serif;
+	color:white;
+	font-size:1.2em;
+}
+div.center
+{
+	text-align: center;
+}
+div.container
+{
+	position: relative;
+}
+img.mainimage
+{
+	width:50%;
+}
+img.mainimage, img.boximage, div.optionheader, #description, div.bonusstars
+{
+	border-radius: 50px;
+}
+div.mainheader
+{
+	background-color:rgb(255,127,39,0.5);
+	position:absolute;
+	top: 10%;
+	left: 38%;
+	padding: 20px;
+	font-weight:bold;
+	font-size:2em;
+}
+div.paragraph
+{
+	width: 50%;
+	transform: translate(50%, 50%);
+}
+div.options
+{
+	margin-top: 20px auto;
+}
+div.boardselect, div.minigameselect
+{
+	float:left;
+	margin: 25px;
+	width: 35%;
+	position: relative;
+}
+div.boximage
+{
+	clear:both;
+}
+div.boardselect, div.minigameselect, img.arrow, #board, td.spacerow, div.minigametype
+{
+	cursor: pointer;
+}
+div.boardselect a, div.minigameselect a, td a, li.back a
+{
+	text-decoration: none;
+	color: white;
+}
+#boards, #minigames
+{
+	border-radius: 50px;
+	width: 90%;
+}
+div.optionheader
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color:rgb(255,127,39,0.8);
+	padding: 25px;
+	font-size: 1.5em;
+	text-shadow: 2px 2px #000000;
+}
+div.optionheader:hover, td.spacerow:hover, li.back:hover
+{
+	text-decoration:underline;
+}
+div.chooseboard
+{
+	width: 100%;
+	position: relative;
+	display:inline-block;
+}
+img.arrow
+{
+	position: absolute;
+	top: 50%;
+	 -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin:0;
+}
+#board
+{
+	margin-left: 50px;
+	margin-right: 10px;
+	width: 45%;
+}
+#description
+{
+	display: inline-block;
+	padding: 20px;
+	background-color:rgb(239, 228, 176);
+	color:black;
+}
+div.bonusstars
+{
+	border:2px solid grey;
+	display:inline-block;
+	padding: 15px;
+	background-image: linear-gradient(rgb(137, 62, 107), rgb(59, 34, 98));
+	width: 50%;
+}
+div.bonusstarheading
+{
+	font-size: 2em;
+	font-weight: bold;
+}
+ul
+{
+	line-height: 1.75em;
+	display: inline-block;
+	text-align: left;
+}
+img.smallspace
+{
+	width: 32px;
+	height: 32px;
+	padding: 2px 10px;
+	vertical-align: middle;
+}
+table.spaces, table.minigameselect
+{
+	margin:0 auto;
+}
+table.spaces td
+{
+	padding: 2px 20px;
+}
+td.spacerow img
+{
+	width: 96px;
+	height: 96px;
+}
+td.spacerow
+{
+	width:120px;
+}
+li.back, ul.spacerundown
+{
+	list-style-type: none;
+}
+div.twovideos, div.onevideo, div.threevideos, div.content
+{
+	line-height:1.5em;
+	margin:0 auto;
+	padding:5px;
+	clear:both;
+}
+div.someimages
+{
+	width: 1200px;
+	vertical-align: baseline;
+	display:inline-block;
+	margin:0 auto;
+}
+img.threeimages
+{
+	padding: 1px 10px;
+	width: 320px;
+}
+div.threevideos
+{
+	width: 1690px;
+	overflow: auto;
+}
+div.twovideos
+{
+	width: 1100px;
+	overflow: auto;
+}
+div.onevideo
+{
+	width: 540px;	
+}
+div.videofloat, div.imagefloat
+{
+	width: 60%;
+	clear:both;
+	margin:0 auto;
+}
+img.floatimage, video.floatvideo
+{
+	float:left;
+	padding: 10px;
+}
+img.boardoverview
+{
+	width:65%;
+	padding: 15px;
+}
+div.boardoverview
+{
+	width:55%;
+	margin:0 auto;
+}
+div.imageblock
+{
+	display:table;
+	padding: 10px;
+	border: 2px solid grey;
+	margin:0 auto;
+}
+img.cornerimage
+{
+	position:fixed;
+	bottom:0;
+	right:0;
+	padding: 12px;
+	width:15%;
+	border-radius: 25px;
+	cursor: pointer;
+}
+img.zoomedin
+{
+	position:fixed;
+	width:75%;
+	transform: translate(15%, 15%);
+	border-radius: 25px;
+}
+#boardcontents
+{
+	z-index: -1;
+	position: relative;
+}
+.darker
+{
+	filter: brightness(50%);
+}
+audio
+{
+	position:fixed;
+	top:0;
+	left:0;
+	padding: 10px;
+	width:10%;
+}
+#looptime
+{
+	display:none;
+}
+div.minigametypes
+{
+	display:table;
+	margin:0 auto;
+	background-image: linear-gradient(rgb(237, 237, 237), rgb(228, 228, 228));
+	color:black;
+	border-radius:20px;
+	padding: 30px;
+}
+div.minigametype
+{
+	display:inline-block;
+	vertical-align:top;
+	padding: 5px;
+	background-color: rgb(223,223,223);
+	border-radius:10px;
+	min-width: 250px;
+	min-height: 250px;
+	margin-left: 25px;
+	margin-bottom: 30px;
+}
+div.selectminigame
+{
+	border:2px solid yellow;
+	background-color: rgb(73, 61, 95);
+	color:white;
+}
+div.minigame
+{
+	display:inline-block;
+	vertical-align:top;
+	padding: 5px;
+	background-color: rgb(223,223,223);
+	border-radius:10px;
+	margin: 7px;
+}
+div.minigame a
+{
+	color:black;
+	text-decoration:none;
+}
+div.minigame:hover
+{
+	text-decoration:underline;
+}
+img.minigameimg
+{
+	width:250px;
+}
+div.chancetimeoutcomes
+{
+	display:inline-block;
+	width: 500px;
+	overflow: auto;
+}
+div.chancetimeoutcomes td
+{
+	padding: 6px;
+}
+
+table.distributiontable
+{
+	padding: 5px;
+	margin:0 auto;
+	border:1px solid grey;
+	width: 400px;
+	font-size:1.5em;
+	overflow:auto;
+}
+div.content
+{
+	width: 55%;
+	overflow: auto;
+}
+div.minigamediv
+{
+	padding: 15px;
+}
