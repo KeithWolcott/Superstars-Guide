@@ -6,7 +6,7 @@ if (!$conn || !isset($_GET["id"]) || !is_numeric($_GET["id"]))
 	header("Location: minigames.php");
 }
 $minigames = array();
-$result = mysqli_query($conn, "select * from minigames where id = $minigameid;");
+$result = mysqli_query($conn, "select name, image, minigames.title, previousminigame, nextminigame, youtubeurl, youtubestart, youtubeend, consolename, description from minigames inner join youtube on minigames.id = youtube.minigame inner join games on minigames.title = games.id inner join consoles on games.console = consoles.id inner join minigameinstructions on minigames.id = minigameinstructions.id where minigames.id = $minigameid;");
 $invalidminigame = false;
 if (mysqli_num_rows($result) < 1)
 {
@@ -21,6 +21,8 @@ else
 	$youtubeurl = $row["youtubeurl"];
 	$youtubestart = $row["youtubestart"];
 	$youtubeend = $row["youtubeend"];
+	$console = $row["consolename"];
+	$description = str_replace("\r\n","<br>",$row["description"]);
 	$result2 = mysqli_query($conn, "select * from minigames where id = {$row["previousminigame"]};");
 	$result3 = mysqli_query($conn, "select * from minigames where id = {$row["nextminigame"]};");
 	$row2 = mysqli_fetch_assoc($result2);
@@ -55,15 +57,15 @@ else
 ?> - Mario Party Superstars Guide</title>
 <link rel="stylesheet" href="stylesheet.css" />
 </head>
-<body><div class="center">
+<body><div class="center"><div class="minigameinstruction">
 <?php
 if ($invalidminigame)
 {
-	echo "<h1>Invalid Minigame</h1><p><a href=\"minigames.php\">Back to minigames</a></p>";
+	echo "<div class=\"minigameinfo\"><h1>Invalid Minigame</h1></div></div><p><a href=\"minigames.php\">Back to minigames</a></p>";
 }
 else
 {
-	echo "<h1>$name</h1>\r\n<div class=\"minigamediv\"><img src=\"images/titles/$title.png\" alt=\"Mario Party $title\"></div>\r\n<div class=\"minigamediv\"><img src=\"$image\" alt=\"$name\" title=\"$name\"></div>\r\n<div class=\"minigamediv\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/{$youtubeurl}?start={$youtubestart}&end={$youtubeend}\" frameborder=\"0\" allow=\"accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>";
+	echo "<div class=\"minigameinfo\"><h1>$name</h1><span class=\"consoleinfo\"><img src=\"images/consoles/$console.png\" alt=\"$console\"> <img src=\"images/titles/big/$title.png\" alt=\"Mario Party $title\"></span></div>\r\n\r\n<div class=\"minigamevideodiv\"><iframe width=\"630\" height=\"354\" src=\"https://www.youtube.com/embed/{$youtubeurl}?start={$youtubestart}&end={$youtubeend}\" frameborder=\"0\" allow=\"accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe><div class=\"controls\"><img src=\"images/minigamecontrols/header.png\" width=\"500\" alt=\"Controls\"><br><img src=\"images/minigamecontrols/$minigameid.png\" width=\"500\"></div></div><div class=\"minigameinfo\"><img src=\"images/Toad.png\" alt=\"Toad\" class=\"speechbubble\"> <div class=\"minigameinstructions\"><img src=\"images/speechbubble.png\" class=\"speechbubble\"><div class=\"minigameinstructionbox\">$description</div></div></div></div>";
 	
 	include 'minigameinfo/' . $minigameid . '.html';
 	

@@ -51,7 +51,7 @@ function printminigames($conn, $databasename)
 		$result = mysqli_query($conn, "select $databasename.id, name, title, image from minigames inner join $databasename on minigames.id = $databasename.id;");
 		while ($row = mysqli_fetch_assoc($result))
 		{
-			$finalstr .= "<div class=\"minigame\" id=\"{$row["id"]}\"><a href=\"minigame.php?id={$row["id"]}\"><img class=\"minigameimg\" src=\"{$row["image"]}\" alt=\"{$row["name"]}\" title=\"{$row["name"]}\"><br><img src=\"images/titles/{$row["title"]}.png\" alt=\"Mario Party {$row["title"]}\"><br>{$row["name"]}</a></div>\r\n";
+			$finalstr .= "<div class=\"minigame\" id=\"{$row["id"]}\"><a href=\"minigame.php?id={$row["id"]}\"><img class=\"minigameimg\" src=\"{$row["image"]}\" alt=\"{$row["name"]}\" title=\"{$row["name"]}\"><br><img src=\"images/titles/small/{$row["title"]}.png\" alt=\"Mario Party {$row["title"]}\"><br>{$row["name"]}</a></div>\r\n";
 		}
 	}
 	return $finalstr;

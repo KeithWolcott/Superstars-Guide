@@ -17,7 +17,7 @@ img.mainimage
 {
 	width:50%;
 }
-img.mainimage, img.boximage, div.optionheader, #description, div.bonusstars
+img.mainimage, img.boximage, div.optionheader, #description, div.bonusstars, div.minigameinstruction, iframe
 {
 	border-radius: 50px;
 }
@@ -30,6 +30,78 @@ div.mainheader
 	padding: 20px;
 	font-weight:bold;
 	font-size:2em;
+}
+div.minigameinstruction
+{
+	background-image: linear-gradient(to right, rgb(211, 86, 123), rgb(191, 169, 218), rgb(164, 236, 250));
+	width: 1300px;
+	margin:0 auto;
+}
+div.minigameinfo
+{
+	padding: 10px;
+	margin-left: 15px;
+	text-align: left;
+}
+div.minigameinstructions
+{
+	height:207px;
+}
+div.minigamevideodiv
+{
+	padding: 10px;
+	overflow: auto;
+	height: 450px;
+}
+div.minigameinstructions, div.minigameinstructionbox
+{
+	display:inline-block;
+}
+iframe
+{
+	float: left;
+	margin-top: 41px;
+}
+div.controls
+{
+	float:left;
+	margin-left: 15px;
+	background-color:white;
+	height: 450px;
+	width: 500px;
+	display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+	
+}
+img.speechbubble, div.minigameinstructionbox, iframe
+{
+	vertical-align:middle;
+}
+div.minigameinstructionbox
+{
+	border:2px solid rgb(231, 181, 38);
+	background-image: linear-gradient(to right, rgb(255, 252, 228), rgb(255, 251, 198));
+	color:black;
+	height:200px;
+	padding: 20px;
+	font-size:1.6em;
+	width: 700px;
+}
+div.minigameinfo h1
+{
+	display:inline-block;
+	color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  font-size:2.4em;
+}
+span.consoleinfo
+{
+	float:right;
+	margin-left: 50px;
+	margin-right: 50px;
 }
 div.paragraph
 {
@@ -168,10 +240,20 @@ div.someimages
 	display:inline-block;
 	margin:0 auto;
 }
+img.twoimages
+{
+	padding: 1px 10px;
+	width: 500px;
+}
 img.threeimages
 {
 	padding: 1px 10px;
 	width: 320px;
+}
+img.fourimages
+{
+	padding: 1px 12px;
+	width: 225px;
 }
 div.threevideos
 {
@@ -326,8 +408,4 @@ div.content
 {
 	width: 55%;
 	overflow: auto;
-}
-div.minigamediv
-{
-	padding: 15px;
 }
