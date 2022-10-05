@@ -15,28 +15,28 @@ include 'config.php';
 <a id="boards"></a><h1>Minigames</h1>
 <div class="minigametypes">
 <div class="minigametype selectminigame">
-<img src="images/minigamepage/alltypes.png" alt="All Types">
+<img src="images/minigamepage/alltypes.png" alt="All Types" title="All Types">
 <p>All Types</p>
 </div>
 <div class="minigametype">
-<img src="images/minigamepage/family.png" alt="Family">
+<img src="images/minigamepage/family.png" alt="Family" title="Family">
 <p>Family</p>
 </div>
 <div class="minigametype">
-<img src="images/minigamepage/action.png" alt="Action">
+<img src="images/minigamepage/action.png" alt="Action" title="Action">
 <p>Action</p>
 </div>
 <br>
 <div class="minigametype">
-<img src="images/minigamepage/nintendo64.png" alt="Nintendo 64">
+<img src="images/minigamepage/nintendo64.png" alt="Nintendo 64" title="Nintendo 64">
 <p>Nintendo 64</p>
 </div>
 <div class="minigametype">
-<img src="images/minigamepage/gamecube.png" alt="GameCube">
+<img src="images/minigamepage/gamecube.png" alt="GameCube" title="GameCube">
 <p>GameCube</p>
 </div>
 <div class="minigametype">
-<img src="images/minigamepage/skill.png" alt="Skill">
+<img src="images/minigamepage/skill.png" alt="Skill" title="Skill">
 <p>Skill</p>
 </div>
 </div>

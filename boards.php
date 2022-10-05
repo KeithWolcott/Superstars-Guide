@@ -60,6 +60,7 @@
 <td class="spacerow"><a href="bankspaces.php"><img src="images/spaces/Bank Space.png"><p>Bank Space (not on Mario Party 1 boards)</p></a></td>
 </tr>
 </table>
+<p>For information about items, check the Item Space section.</p>
 <div class="twovideos">
 <video width="540" height="360" autoplay muted loop>
   <source src="videos/Koopa.mp4" type="video/mp4">

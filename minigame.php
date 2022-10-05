@@ -6,7 +6,7 @@ if (!$conn || !isset($_GET["id"]) || !is_numeric($_GET["id"]))
 	header("Location: minigames.php");
 }
 $minigames = array();
-$result = mysqli_query($conn, "select name, image, minigames.title, previousminigame, nextminigame, youtubeurl, youtubestart, youtubeend, consolename, description from minigames inner join youtube on minigames.id = youtube.minigame inner join games on minigames.title = games.id inner join consoles on games.console = consoles.id inner join minigameinstructions on minigames.id = minigameinstructions.id where minigames.id = $minigameid;");
+$result = mysqli_query($conn, "select name, image, minigames.title, previousminigame, nextminigame, youtubeurl, youtubestart, youtubeend, consolename, description, familyminigames.id as family, actionminigames.id as action, n64titles.game as n64, gamecubetitles.game as gamecube, skillminigames.id as skill from minigames inner join youtube on minigames.id = youtube.minigame inner join games on minigames.title = games.id inner join consoles on games.console = consoles.id inner join minigameinstructions on minigames.id = minigameinstructions.id left join familyminigames on minigames.id = familyminigames.id left join actionminigames on minigames.id = actionminigames.id left join n64titles on games.title = n64titles.game left join gamecubetitles on games.title = gamecubetitles.game left join skillminigames on minigames.id = skillminigames.id where minigames.id = $minigameid;");
 $invalidminigame = false;
 if (mysqli_num_rows($result) < 1)
 {
@@ -23,6 +23,7 @@ else
 	$youtubeend = $row["youtubeend"];
 	$console = $row["consolename"];
 	$description = str_replace("\r\n","<br>",$row["description"]);
+	$minigametypes = array("family"=>$row["family"], "action"=>$row["action"], "n64"=>$row["n64"], "gamecube"=>$row["gamecube"], "skill"=>$row["skill"]);
 	$result2 = mysqli_query($conn, "select * from minigames where id = {$row["previousminigame"]};");
 	$result3 = mysqli_query($conn, "select * from minigames where id = {$row["nextminigame"]};");
 	$row2 = mysqli_fetch_assoc($result2);
@@ -65,7 +66,17 @@ if ($invalidminigame)
 }
 else
 {
-	echo "<div class=\"minigameinfo\"><h1>$name</h1><span class=\"consoleinfo\"><img src=\"images/consoles/$console.png\" alt=\"$console\"> <img src=\"images/titles/big/$title.png\" alt=\"Mario Party $title\"></span></div>\r\n\r\n<div class=\"minigamevideodiv\"><iframe width=\"630\" height=\"354\" src=\"https://www.youtube.com/embed/{$youtubeurl}?start={$youtubestart}&end={$youtubeend}\" frameborder=\"0\" allow=\"accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe><div class=\"controls\"><img src=\"images/minigamecontrols/header.png\" width=\"500\" alt=\"Controls\"><br><img src=\"images/minigamecontrols/$minigameid.png\" width=\"500\"></div></div><div class=\"minigameinfo\"><img src=\"images/Toad.png\" alt=\"Toad\" class=\"speechbubble\"> <div class=\"minigameinstructions\"><img src=\"images/speechbubble.png\" class=\"speechbubble\"><div class=\"minigameinstructionbox\">$description</div></div></div></div>";
+	echo "<div class=\"minigameinfo\"><h1>$name</h1><span class=\"consoleinfo\"><img src=\"images/consoles/$console.png\" alt=\"$console\"> <img src=\"images/titles/big/$title.png\" alt=\"Mario Party $title\"></span></div>\r\n\r\n<div class=\"minigamevideodiv\"><iframe width=\"630\" height=\"354\" src=\"https://www.youtube.com/embed/{$youtubeurl}?start={$youtubestart}&end={$youtubeend}\" frameborder=\"0\" allow=\"accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe><div class=\"controls\"><img src=\"images/minigamecontrols/header.png\" width=\"500\" alt=\"Controls\"><br><img src=\"images/minigamecontrols/$minigameid.png\" width=\"500\"></div></div><div class=\"minigameinfo\"><img src=\"images/Toad.png\" width=\"191\" height=\"261\" alt=\"Toad\" class=\"speechbubble\"> <div class=\"minigameinstructions\"><img src=\"images/speechbubble.png\" class=\"speechbubble\"><div class=\"minigameinstructionbox\">$description</div></div></div><div class=\"minigamecategories\">";
+	function getminigamecategory($minigametypes, $minigametype, $filename, $text)
+	{
+		if (!is_null($minigametypes[$minigametype]))
+		{
+			return "<div class=\"minigamecategory\"><img class=\"minigamecategory\" src=\"images/minigamepage/$filename.png\" alt=\"$text\" title=\"$text\"><br><span class=\"minigamecategory\">$text</span></div>\r\n";
+		}
+		return "";
+	}
+	echo getminigamecategory($minigametypes, "family", "family", "Family") . getminigamecategory($minigametypes, "action", "action", "Action") . getminigamecategory($minigametypes, "n64", "nintendo64", "Nintendo 64") . getminigamecategory($minigametypes, "gamecube", "gamecube", "GameCube") . getminigamecategory($minigametypes, "skill", "skill", "Skill");
+	echo "</div>";
 	
 	include 'minigameinfo/' . $minigameid . '.html';
 	

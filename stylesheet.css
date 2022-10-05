@@ -83,7 +83,7 @@ div.minigameinstructionbox
 	border:2px solid rgb(231, 181, 38);
 	background-image: linear-gradient(to right, rgb(255, 252, 228), rgb(255, 251, 198));
 	color:black;
-	height:200px;
+	height:180px;
 	padding: 20px;
 	font-size:1.6em;
 	width: 700px;
@@ -408,4 +408,20 @@ div.content
 {
 	width: 55%;
 	overflow: auto;
+}
+div.minigamecategory
+{
+	display: inline-block;
+	padding: 10px;
+	border:2px solid yellow;
+	height: 130px;
+	vertical-align:middle;
+}
+img.minigamecategory
+{
+	width:100px;
+}
+span.minigamecategory
+{
+  font-size:1.4em;
 }

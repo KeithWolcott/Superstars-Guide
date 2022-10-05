@@ -3,7 +3,7 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<title>Space Land - Mario Party Superstars Guide</title>
+<title>Horror Land - Mario Party Superstars Guide</title>
 <link rel="stylesheet" href="stylesheet.css" />
 </head>
 <body>
@@ -59,7 +59,7 @@
 </div>
 <div class="twovideos">
 <video width="540" height="360" autoplay muted loop>
-  <source src="videos/horrorland/Day to Night Event.mp4" type="video/mp4">
+  <source src="videos/horrorland/Darkness Lamp.mp4" type="video/mp4">
 </video>
 <video width="540" height="360" autoplay muted loop>
   <source src="videos/horrorland/Dance Party Horror Land.mp4" type="video/mp4">
